@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => [env('APP_FRONT_URL','http://localhost:5173')],  //ricordati che il APP_FRONT_URL devi impostarlo per ogni nuovo progetto e che se non è inserito nel .env, prende il secondo parametro di default, adesso solo questo indirizzo può accedere alle nostre API
 
     'allowed_origins_patterns' => [],
 

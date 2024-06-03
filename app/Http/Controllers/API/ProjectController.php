@@ -17,4 +17,20 @@ class ProjectController extends Controller
             "projects" => $projectList,
         ]);
     }
+
+    public function show($project_id){
+        $project = Project::with('type','technologies')->where('id',$project_id)->first(); //salva nella variabile l'istanza del progetto con le varie relazioni solo se la trova
+
+        if($project){
+            return response()->json([
+                'success'=> true,
+                'response' => $project
+            ]);
+        } else {
+            return response()->json([
+                'success'=> false,
+                'response' => 'Sorry nothing found!'
+            ]);
+        }
+    }
 }
